@@ -1,33 +1,33 @@
-# Computer Vision Lab 3 – Average Filtering
+# Computer Vision Laboratory – Average Filtering
 
-## 📌 Overview
+## Introduction
 
-This project demonstrates **Average Filtering in Computer Vision** using Python. The experiment applies different average filter kernel sizes to a grayscale image and compares the resulting blurred images.
+This repository contains the implementation of an image smoothing experiment using **Average Filtering** in Computer Vision.
 
-The implementation uses **OpenCV, NumPy, and Matplotlib**.
+The experiment applies average filters with different kernel sizes to a grayscale image and compares their effects. The implementation is developed using Python with OpenCV, NumPy, and Matplotlib.
 
-## 🎯 Objective
+## Objective
 
-To implement and visualize average filtering using different kernel sizes:
+The objective of this experiment is to understand the working of an average filter and observe how different kernel sizes affect image smoothing.
+
+The following filters are implemented:
 
 * 3 × 3 Average Filter
 * 5 × 5 Average Filter
 * 7 × 7 Average Filter
 
-The experiment helps understand how increasing the kernel size affects image smoothing and blurring.
-
-## 🛠️ Technologies Used
+## Technologies Used
 
 * Python 3
-* OpenCV (`cv2`)
+* OpenCV
 * NumPy
 * Matplotlib
 * Google Colab / Jupyter Notebook
 
-## 📂 Project Structure
+## Repository Contents
 
 ```text
-Computer-Vision-Lab-3/
+Computer-Vision-Lab/
 │
 ├── CV_LAB3.ipynb
 ├── cv3.jpg
@@ -35,29 +35,38 @@ Computer-Vision-Lab-3/
 └── README.md
 ```
 
-## 🔬 Experiment
+### File Description
 
-The input image is converted/read as a **grayscale image**. Average filter kernels are created using NumPy.
+| File                        | Description                                                          |
+| --------------------------- | -------------------------------------------------------------------- |
+| `CV_LAB3.ipynb`             | Jupyter/Google Colab notebook containing the complete implementation |
+| `cv3.jpg`                   | Input image used for the experiment                                  |
+| `average_filter_output.png` | Output containing the original and filtered images                   |
+| `README.md`                 | Documentation for the project                                        |
 
-### 3 × 3 Kernel
+## Methodology
+
+The input image is loaded as a grayscale image. Three average filter kernels are created using NumPy.
+
+### 3 × 3 Average Filter
 
 ```python
 kernel_3x3 = np.ones((3, 3), np.float32) / 9
 ```
 
-### 5 × 5 Kernel
+### 5 × 5 Average Filter
 
 ```python
 kernel_5x5 = np.ones((5, 5), np.float32) / 25
 ```
 
-### 7 × 7 Kernel
+### 7 × 7 Average Filter
 
 ```python
 kernel_7x7 = np.ones((7, 7), np.float32) / 49
 ```
 
-The filters are applied using OpenCV's `filter2D()` function.
+The filters are applied to the image using OpenCV's `filter2D()` function:
 
 ```python
 blur3 = cv2.filter2D(img, -1, kernel_3x3)
@@ -65,46 +74,47 @@ blur5 = cv2.filter2D(img, -1, kernel_5x5)
 blur7 = cv2.filter2D(img, -1, kernel_7x7)
 ```
 
-## 📊 Output
+The implementation and filter sizes are based on the uploaded laboratory notebook.
 
-The program displays four images:
+## Output
+
+The program displays four images for comparison:
 
 1. Original Grayscale Image
-2. Average Filter (3 × 3)
-3. Average Filter (5 × 5)
-4. Average Filter (7 × 7)
+2. Image after applying the 3 × 3 Average Filter
+3. Image after applying the 5 × 5 Average Filter
+4. Image after applying the 7 × 7 Average Filter
 
-The notebook also saves the resulting comparison as:
+The notebook also saves the output as:
 
 ```text
 average_filter_output.png
 ```
 
-## 📚 Libraries
+The output visualization and saving operation are implemented in the notebook.
 
-### OpenCV
+## Observations
 
-Used for reading the image and applying the filtering operation.
+The average filter replaces each pixel with the average value of its neighboring pixels.
 
-### NumPy
+As the kernel size increases:
 
-Used to create the average filter kernels.
+* The amount of smoothing increases.
+* Fine image details become less visible.
+* The image becomes progressively more blurred.
+* Larger kernels produce stronger smoothing effects.
 
-### Matplotlib
+## How to Run
 
-Used to display and compare the original and filtered images.
+### Using Google Colab
 
-## ▶️ How to Run
-
-### Option 1: Google Colab
-
-1. Open the `CV_LAB3.ipynb` notebook in Google Colab.
-2. Upload the `cv3.jpg` image.
-3. Update the image path if required.
+1. Upload `CV_LAB3.ipynb` to Google Colab.
+2. Upload the input image `cv3.jpg`.
+3. Make sure the image path in the notebook points to the correct location.
 4. Run all cells.
-5. View the filtered images.
+5. View the generated filtered images.
 
-### Option 2: Jupyter Notebook
+### Using Jupyter Notebook
 
 Install the required libraries:
 
@@ -112,22 +122,32 @@ Install the required libraries:
 pip install opencv-python numpy matplotlib
 ```
 
-Then open:
+Open the notebook:
 
 ```text
 CV_LAB3.ipynb
 ```
 
-and run the cells.
+Run all cells to perform the experiment.
 
-## 💡 Result
+## Requirements
 
-The experiment demonstrates that average filtering smooths the image by averaging neighboring pixel values. As the kernel size increases from **3 × 3 to 7 × 7**, the smoothing and blurring effect becomes stronger.
+The experiment requires the following Python libraries:
 
-## 👨‍💻 Author
+```text
+opencv-python
+numpy
+matplotlib
+```
 
-**Computer Vision Laboratory**
+## Result
 
----
+The experiment successfully demonstrates average filtering using 3 × 3, 5 × 5, and 7 × 7 kernels. The comparison shows the effect of increasing kernel size on image smoothing and blurring.
 
-⭐ If you find this project useful, consider giving the repository a star!
+## Conclusion
+
+Average filtering is a simple spatial filtering technique used to reduce image variations and smooth images. By comparing different kernel sizes, the experiment demonstrates that larger kernels produce a stronger smoothing effect.
+
+## Author
+
+Computer Vision Laboratory Project
